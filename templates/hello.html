@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Ugani glavno mesto</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body onload="document.body.style.opacity='1'">
+    <h1>Dobrodosli v Igro - Ugani mesto</h1>
+    <h2>V input polje vpisite mesto sa slike:</h2>
+    <form class="form-inline" method="post" action="/">
+        <input class="hidden" type="checkbox" name="pravilen-odg" value="{{ mesto }}" checked>
+        <input class="hidden" type="checkbox" name="drzava-odg" value="{{ drzava }}" checked>
+
+        <input class="form-control" name="vnos" required="required">
+        <button class="btn btn-danger" type="submit">Potrdi vnos</button>
+    </form>
+    <br/>
+    <button class="btn btn-info" data-toggle="popover" title="Drzava" data-content="{{ drzava }}">....Info....</button>
+        <script>
+        $(document).ready(function(){
+        $('[data-toggle="popover"]').popover();
+        });
+        </script>
+    <h4>{% if "pravilen" in rezultat %}
+
+        {% elif "napacen" in rezultat %}
+
+        {% else %}
+
+        {% endif %} {{ iznos }}
+    </h4>
+    <br/>
+    <img class="img-rounded" src="{{ slika }}" width="600px" height="400px">
+    <br/>
+    <br/>
+    <p class="footer">&copy; 2016 BojPav</p>
+</body>
+</html>
+
+<!--Del kode posojen iz Tilove "from Tilen import" aplikacije...Drugac mi pa ni slo...Hvala :)-->
